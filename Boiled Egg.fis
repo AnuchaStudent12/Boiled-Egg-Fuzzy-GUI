@@ -1,0 +1,47 @@
+[System]
+Name='Boiled Egg'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Time'
+Range=[0 100]
+NumMFs=3
+MF1='Not':'trimf',[-40 0.974930362117 40]
+MF2='E':'trimf',[10 50 90]
+MF3='over':'trimf',[59.3500464252553 99.3500464252553 139.350046425255]
+
+[Input2]
+Name='Temp'
+Range=[0 100]
+NumMFs=3
+MF1='low':'trimf',[-40 0 40]
+MF2='mid':'trimf',[10 50 90]
+MF3='high':'trimf',[60 100 140]
+
+[Output1]
+Name='Egg'
+Range=[0 100]
+NumMFs=3
+MF1='raw':'trimf',[-40 0 40]
+MF2='mid':'trimf',[10 50 90]
+MF3='fcfk':'trimf',[60 100 140]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 2 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1
